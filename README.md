@@ -1,6 +1,15 @@
-# Globe Bank (PHP / MySQL)
+# Globe Bank
 
 A small CMS-style PHP site with a public-facing navigation (Subjects → Pages) and a password-protected staff area for managing content and admins.
+
+## Live preview
+
+- https://globebank.fcjamison.com/public/index.php
+
+## Local URL
+
+- Preferred: `http://globebank.localhost/` (document root points to `public/`)
+- Older setups may still use a `http://localhost/.../public/index.php` style URL if the project root is being served instead of `public/`
 
 ## Tech stack
 
@@ -39,7 +48,6 @@ This prevents direct web access to `private/`, which contains database credentia
 ### 3) Create and seed the database
 
 1. Create the schema and seed data by running:
-
    - `setup_database.sql` (creates database `globe_bank` and inserts sample Subjects/Pages)
 
 2. The script also includes optional statements to create a MySQL user and grant privileges.
@@ -70,7 +78,13 @@ The database connection is created in `private/database.php` and initialized via
 ### Option A: Web server (Apache/Nginx)
 
 - Point the site’s document root to `public/`
-- Visit the site using whatever URL your server is configured to serve (for example `http://localhost/` or a local domain you set up)
+- Visit the site using whatever URL your server is configured to serve.
+
+Local development convention (this repo):
+
+- `http://globebank.localhost/`
+
+If you previously browsed to a `/public/...` URL (for example `http://localhost/.../public/index.php`), that usually means your document root was pointed at the project root instead of `public/`.
 
 ### Option B: PHP built-in server (quick dev)
 
